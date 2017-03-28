@@ -76,7 +76,7 @@ public class MyString {
 
     // ReplaceAll方法
     public MyString replaceAll(MyString oldString, MyString newString) {
-        int old_cnt = 0;
+        int old_cnt = 0;//oldString在原数组中出现的次数
         for (int i = 0; i < data.length; i++) {
             if (data[i] == oldString.data[0]) {
                 old_cnt++;
@@ -86,49 +86,57 @@ public class MyString {
         // 最后拿到的新MyString的字符数组，及其长度
         int lens = data.length + (newString.length() - oldString.length()) * old_cnt;
         char[] newData = new char[lens];
+        int increment = Math.abs(newString.length() - oldString.length());//增量，绝对值，即被替换字符串与替换字符串的长度差
 
-        // for (int i = 0; i < data.length; i++) {
+
         int i = 0;
         int j = 0;
 
-        while (j < old_cnt) {
+        while (j <= (old_cnt * increment)) {
             while (i < data.length) {
-                int newStartPos = 0;
+
                 int startPos = i;// startPos 原数组
                 int endPos = i + oldString.length() - 1;
-                // char[] tmp = new char[oldString.length()];
-                // while (j < oldString.length()) {
-                // tmp[j] = data[startPos];
-                // j++;
-                // startPos++;
-                // }
 
                 // 拿出原data中与old等长的一段数组进行比较
-                char[] originShort = new char[oldString.length()];
+                char[] originShort;
                 originShort = Arrays.copyOfRange(data, startPos, endPos + 1);// 注意边界
-                // System.arraycopy(data, startPos, originShort, 0,
-                // oldString.length());
 
-                if (isEqual(oldString.getData(), originShort)) {
-                    System.arraycopy(newString.getData(), 0, newData, startPos + j, newString.length());
-                    i = i + (oldString.length());
-                    break;
+                //替换长度相等
+                if (newData.length == data.length) {
+                    if (isEqual(oldString.getData(), originShort)) {
+                        System.arraycopy(newString.getData(), 0, newData, startPos, newString.length());
+                        i = i + (oldString.length());
+                        break;
+                    } else {
+                        System.arraycopy(data, i, newData, startPos, 1);
+                    }
+                    //替换字符串（new）长度大于被替换字符串（old）长度
+                } else if (newData.length > data.length) {
+                    if (isEqual(oldString.getData(), originShort)) {
+                        System.arraycopy(newString.getData(), 0, newData, startPos + j, newString.length());
+                        i = i + (oldString.length());
+                        break;
+                    } else {
+                        System.arraycopy(data, i, newData, startPos + j, 1);
+                    }
                 } else {
-
-                    System.arraycopy(data, i, newData, newStartPos + newString.length(), 1);
-                    // System.arraycopy(data, startPos, newData, startPos + j,
-                    // newString.length());
-                    newData[i + j] = data[i];// ????newData位置
+                    //替换字符串（new）长度小于被替换字符串（old）长度
+                    if (isEqual(oldString.getData(), originShort)) {
+                        System.arraycopy(newString.getData(), 0, newData, startPos - j, newString.length());
+                        i = i + (oldString.length());
+                        break;
+                    } else {
+                        System.arraycopy(data, i, newData, startPos - j, 1);
+                    }
                 }
-
                 i++;
             }
-
-            j++;
+            j += increment;
         }
-
         return new MyString(newData);
     }
+
 
     public MyString replace(MyString oldString, MyString newString) {
         int startIndex = -1;
@@ -198,10 +206,8 @@ public class MyString {
 
     public boolean isEqual(char[] a, char[] b) {
         for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < b.length; j++) {
-                if (a[i] != b[j]) {
-                    return false;
-                }
+            if (a[i] != b[i]) {
+                return false;
             }
         }
         return true;
