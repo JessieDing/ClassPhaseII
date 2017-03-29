@@ -1,8 +1,9 @@
-import d0327.MyString;
+package d0327;
 
-
-public class Main {
-
+/**
+ * Created by Administrator on 2017/3/29.
+ */
+public class MyStringTest {
     public static void main(String[] args) {
         MyString string1 = new MyString("abc13abc222345abc5abc4abc0".toCharArray());
         MyString str2 = new MyString("abc".toCharArray());
