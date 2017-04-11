@@ -10,14 +10,14 @@ import java.util.Date;
 import java.util.List;
 
 public class FundExportInfo {
-    private String fundName;
-    private String name;
-    private String fundAcnt;
-    private int shares;
-    private double netValue;
-    private double fee;
-    private double deliverrAmt;
-    private String date;
+    private String fundName;//基金名
+    private String name;//客户姓名
+    private String fundAcnt;//基金账号
+    private int shares;//份额
+    private double netValue;//基金净值
+    private double fee;//手续费
+    private double deliverrAmt;//交割资金
+    private String date;//申购日期
     //    String exportFilePath;
 //    List<Fund> fundList;
     List<FundExportInfo> fundInfoList;

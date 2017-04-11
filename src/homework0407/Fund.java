@@ -7,15 +7,18 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fund {
+class Funds {
+    private List<Fund> fundList;
+}
+
+public class Fund {  //原子性
     private String fundName;  //基金名
     private String name;  //客户姓名
     private String fundAcnt;  //基金账号
     private int shares;  //份额
     private double netValue;  //基金净值
     private String filePath;
-    private List<Fund> fundList;
-
+    private List<Fund> fundList;//fundList不应放入Fund类中
 
     public Fund() {
         filePath = "e:" + File.separator + "fund_import.txt";
@@ -31,7 +34,7 @@ public class Fund {
     }
 
     //拿到基金文件导入的信息
-    public List<Fund> getFundFileInfo() {
+    public List<Fund> readFundFile() {
         File file = new File(filePath);
         String[] arrTmp;
         try {
@@ -66,13 +69,17 @@ public class Fund {
     public double calcFee(String fundAcnt, int shares, double netValue) {
         double fee;
         double tmp = (shares * netValue) * 0.01;
-        if (tmp < 20) {
+        if (tmp < 20) {  //浮点数如何比较？
             fee = 20.00;
         } else {
             fee = tmp;
         }
         System.out.println("基金账户"+fundAcnt+"手续费为："+ fee);
         return fee;
+    }
+
+    public void writeToFile() {
+
     }
 
 
