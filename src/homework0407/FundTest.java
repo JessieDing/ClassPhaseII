@@ -27,12 +27,12 @@ public class FundTest {
                 fund.calcApplyFee();
                 fund.calcChargeFee();
                 fund.calcDiscountDate();
-                fund.calcDiscountDate();
                 System.out.println(fund.toString());
 
                 pw.println(fund.toString());
                 pw.flush();
             }
+            bufferedReader.close();
             fos.close();
             pw.close();
         } catch (IOException e) {

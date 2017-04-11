@@ -46,7 +46,7 @@ public class FundRevised {
     public void calcDiscountDate() {
         Date today = new Date();//申购日期为当天
         long l = today.getTime();
-        l += (24 * 3600 * 1000);//加十天赎回折扣期
+        l += (10 * 24 * 3600 * 1000);//加十天赎回折扣期
         today.setTime(l);
         setDiscountDate(today);
     }
