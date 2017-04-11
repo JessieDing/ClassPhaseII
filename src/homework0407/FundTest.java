@@ -8,7 +8,7 @@ public class FundTest {
 
         try {
             FileInputStream fis = new FileInputStream("e:" + File.separator + "fund_import.txt");
-            InputStreamReader isr = new InputStreamReader(fis,"UTF-8");
+            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(isr);
 
             FileOutputStream fos = new FileOutputStream("e:" + File.separator + "fund_export.txt");
@@ -26,6 +26,7 @@ public class FundTest {
                 FundRevised fund = new FundRevised(fundId, custName, fundAcctNo, applyAmt, nav);
                 fund.calcApplyFee();
                 fund.calcChargeFee();
+                fund.calcDiscountDate();
                 fund.calcDiscountDate();
                 System.out.println(fund.toString());
 
@@ -49,21 +50,4 @@ public class FundTest {
          *
          */
     }
-
-
-    /*
-    * 读取文件数据
-    * */
-    public static void readApplyFile(String filePath) {
-
-
-    }
-
-    /*
-    * 写入文件
-    * */
-    public static void writeToFile(String fundInfo) {
-
-    }
-
 }

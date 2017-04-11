@@ -2,6 +2,7 @@ package homework0407;
 
 import java.io.*;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -47,6 +48,7 @@ public class FundRevised {
         long l = today.getTime();
         l += (24 * 3600 * 1000);//加十天赎回折扣期
         today.setTime(l);
+        setDiscountDate(today);
     }
 
     /*
@@ -126,7 +128,11 @@ public class FundRevised {
         DecimalFormat decimalFormat = new DecimalFormat("######0.00"); //对小数进行格式化
         String strChargeFee = decimalFormat.format(chargeFee);
         String strApplyFee = decimalFormat.format(applyBal);
+
+        SimpleDateFormat mdf = new SimpleDateFormat("yyyy/MM/dd");//对日期进行格式化
+        String strDiscountDate = mdf.format(discountDate);
+
         return
-                fundId + "," + custName + "," + fundAccNo + "," + applyAmt + "," + nav + "," + strApplyFee + "," + strChargeFee + "," + discountDate;
+                fundId + "," + custName + "," + fundAccNo + "," + applyAmt + "," + nav + "," + strApplyFee + "," + strChargeFee + "," + strDiscountDate;
     }
 }
