@@ -1,0 +1,23 @@
+<funds>
+	<fund>
+		<fundId>00030003</fundId>
+		<custName>张三</custName>
+		<fundAccNo>A0001</fundAccNo>
+		<applyAmt>10000</applyAmt>
+		<nav>1.12</nav>
+	</fund>
+	<fund>
+		<fundId>00030003</fundId>
+		<custName>李四</custName>
+		<fundAccNo>A0002</fundAccNo>
+		<applyAmt>1000</applyAmt>
+		<nav>1.12</nav>
+	</fund>
+	<fund>
+		<fundId>00030003</fundId>
+		<custName>王五</custName>
+		<fundAccNo>A0003</fundAccNo>
+		<applyAmt>1000</applyAmt>
+		<nav>1.12</nav>
+	</fund>
+</funds>

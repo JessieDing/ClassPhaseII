@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<accts>
+<acct>
+<acct_no>6228480488215954170</acct_no>
+<acct_name>赵四</acct_name>
+<acct_type>1</acct_type>
+<balance>5000.00</balance>
+
+</acct>
+<acct>
+<acct_no>6228480488215954173</acct_no>
+<acct_name>李菊花</acct_name>
+<acct_type>1</acct_type>
+<balance>4500.00</balance>
+</acct>
+<acct>
+<acct_no>6228480488215954175</acct_no>
+<acct_name>陈菊花</acct_name>
+<acct_type>1</acct_type>
+<balance>2500.00</balance>
+</acct>
+</accts>
