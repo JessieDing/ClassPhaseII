@@ -48,15 +48,4 @@ public class MySqlConnector {
         resultSet = statement.executeQuery(strSQL);// 执行查询语句
         return resultSet;
     }
-
-   public String createTable() {
-        StringBuffer strSQL = new StringBuffer();
-        strSQL.append("CREATE TABLE SYS_INFO(");
-        strSQL.append("Sys_no VARCHAR(4) NOT NULL PRIMARY KEY,");
-        strSQL.append("Sys_name VARCHAR(32) NOT NULL,");
-        strSQL.append("Sys_date DATE NOT NULL,");
-        strSQL.append("Sys_status VARCHAR(4) NOT NULL,");
-        strSQL.append("Next_work_date DATE NOT NULL)");
-        return strSQL.toString();
-    }
 }

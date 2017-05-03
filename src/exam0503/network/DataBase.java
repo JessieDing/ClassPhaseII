@@ -13,11 +13,21 @@ public class DataBase {
     }
 
     private static void prepDataBase(MySqlConnector dbhelper) {
-        String createTable = dbhelper.createTable();
+        String createTable = createTable();
         dbhelper.doUpdate(createTable);
         String insertSQL1 = "INSERT INTO sys_info VALUES('HVPS','High Value Payment',CURDATE(),'0000',DATE_SUB(CURDATE(),INTERVAL -1 DAY))";
         dbhelper.doUpdate(insertSQL1);
         String insertSQL2 = "INSERT INTO sys_info VALUES('BEPS','Bulk Electronic Payment',CURDATE(),'0000',DATE_SUB(CURDATE(),INTERVAL -1 DAY))";
         dbhelper.doUpdate(insertSQL2);
+    }
+    public static String createTable() {
+        StringBuffer strSQL = new StringBuffer();
+        strSQL.append("CREATE TABLE SYS_INFO(");
+        strSQL.append("Sys_no VARCHAR(4) NOT NULL PRIMARY KEY,");
+        strSQL.append("Sys_name VARCHAR(32) NOT NULL,");
+        strSQL.append("Sys_date DATE NOT NULL,");
+        strSQL.append("Sys_status VARCHAR(4) NOT NULL,");
+        strSQL.append("Next_work_date DATE NOT NULL)");
+        return strSQL.toString();
     }
 }
