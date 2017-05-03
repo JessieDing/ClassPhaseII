@@ -27,7 +27,7 @@ public class XMLTest {
         fundList.add(fund3);
         * */
         try {
-//            testReadXml("src/d0419/Funds.xml");
+//            testReadXml("src/d0419/Fund.xml");
 //            testWriteXml("src/d0419/fund.xml", fundList);
             testWriteXml_2("src/d0419/fund.xml");
         } catch (Exception e) {

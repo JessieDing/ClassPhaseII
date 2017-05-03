@@ -10,7 +10,7 @@ public class DataBaseTest {
         //使用DBOper
         DBOper dbOper = new DBOper();
         String strSQL1 = "select * from acct";
-        String strSQL2 = "insert into acct(AcctNo,AcctName,Status,balance) values('0007','Michael','1',2300.00F)";
+        String strSQL2 = "insertToFund into acct(AcctNo,AcctName,Status,balance) values('0007','Michael','1',2300.00F)";
         dbOper.doQuery(strSQL1);
         dbOper.doUpdate(strSQL2);
 
@@ -85,7 +85,7 @@ public class DataBaseTest {
                 System.out.println("Connect to database successfully.");
             }
 
-            String strSQL1 = "insert into acct(AcctNo,AcctName,Status,balance) values(?,?,?,?),(?,?,?,?)";
+            String strSQL1 = "insertToFund into acct(AcctNo,AcctName,Status,balance) values(?,?,?,?),(?,?,?,?)";
             prepStatemnt = (PreparedStatement) connection.prepareStatement(strSQL1);
             //参数赋值
             prepStatemnt.setString(1, "0002");
